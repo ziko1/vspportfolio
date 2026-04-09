@@ -7,15 +7,22 @@ import Portfolio from './components/Portfolio'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { getInitialLocale, setLocale } from './locales/locale'
 
 function App() {
   const [theme, setTheme] = useState('light')
+  const [locale, setLocaleState] = useState('uk')
 
   useEffect(() => {
     // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light'
     setTheme(savedTheme)
     document.documentElement.setAttribute('data-theme', savedTheme)
+    
+    // Initialize locale
+    const initialLocale = getInitialLocale()
+    setLocaleState(initialLocale)
+    setLocale(initialLocale)
   }, [])
 
   const toggleTheme = () => {
@@ -25,18 +32,23 @@ function App() {
     document.documentElement.setAttribute('data-theme', newTheme)
   }
 
+  const changeLocale = (newLocale) => {
+    setLocaleState(newLocale)
+    setLocale(newLocale)
+  }
+
   return (
     <>
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
+      <Navbar theme={theme} onToggleTheme={toggleTheme} locale={locale} onChangeLocale={changeLocale} />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <Skills />
-        <Contact />
+        <Hero locale={locale} />
+        <About locale={locale} />
+        <Services locale={locale} />
+        <Portfolio locale={locale} />
+        <Skills locale={locale} />
+        <Contact locale={locale} />
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   )
 }

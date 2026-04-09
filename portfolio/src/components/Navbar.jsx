@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
+import { useTranslation } from '../locales/translations'
 
-const Navbar = ({ theme, onToggleTheme }) => {
+const Navbar = ({ theme, onToggleTheme, locale, onChangeLocale }) => {
+  const { t } = useTranslation(locale)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -15,11 +17,11 @@ const Navbar = ({ theme, onToggleTheme }) => {
   }, [])
 
   const navLinks = [
-    { href: '#about', label: 'Про мене' },
-    { href: '#services', label: 'Послуги' },
-    { href: '#portfolio', label: 'Портфоліо' },
-    { href: '#skills', label: 'Навички' },
-    { href: '#contact', label: 'Контакти' }
+    { href: '#about', label: t('nav.about') },
+    { href: '#services', label: t('nav.services') },
+    { href: '#portfolio', label: t('nav.portfolio') },
+    { href: '#skills', label: t('nav.skills') },
+    { href: '#contact', label: t('nav.contact') }
   ]
 
   const handleNavClick = (e, href) => {
@@ -31,10 +33,15 @@ const Navbar = ({ theme, onToggleTheme }) => {
     }
   }
 
+  const handleLocaleChange = (newLocale) => {
+    onChangeLocale(newLocale)
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <a href="#" className="logo" aria-label="Головна">
+        <a href="#" className="logo" aria-label={t('nav.home')}>
           <span className="logo-text">&lt;OK /&gt;</span>
         </a>
 
@@ -52,12 +59,32 @@ const Navbar = ({ theme, onToggleTheme }) => {
           ))}
         </ul>
 
-        {/* Theme Toggle & Mobile Menu Button */}
+        {/* Theme Toggle, Locale Switcher & Mobile Menu Button */}
         <div className="nav-actions">
+          {/* Locale Switcher */}
+          <div className="locale-switcher">
+            <button
+              className={`locale-btn ${locale === 'uk' ? 'active' : ''}`}
+              onClick={() => handleLocaleChange('uk')}
+              aria-label="Українська"
+              title="Українська"
+            >
+              UA
+            </button>
+            <button
+              className={`locale-btn ${locale === 'en' ? 'active' : ''}`}
+              onClick={() => handleLocaleChange('en')}
+              aria-label="English"
+              title="English"
+            >
+              EN
+            </button>
+          </div>
+
           <button
             className="theme-toggle"
             onClick={onToggleTheme}
-            aria-label={`Перемкнути на ${theme === 'light' ? 'темну' : 'світлу'} тему`}
+            aria-label={`${t('nav.toggleTheme')} ${theme === 'light' ? t('common.dark') : t('common.light')} ${t('common.theme')}`}
           >
             {theme === 'light' ? (
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -81,7 +108,7 @@ const Navbar = ({ theme, onToggleTheme }) => {
           <button
             className="mobile-menu-btn"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Меню"
+            aria-label={t('nav.menu')}
             aria-expanded={isMobileMenuOpen}
           >
             <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}></span>
@@ -100,6 +127,21 @@ const Navbar = ({ theme, onToggleTheme }) => {
               </a>
             </li>
           ))}
+          {/* Mobile Locale Switcher */}
+          <li className="mobile-locale-switcher">
+            <button
+              className={`locale-btn ${locale === 'uk' ? 'active' : ''}`}
+              onClick={() => handleLocaleChange('uk')}
+            >
+              🇺🇦 Українська
+            </button>
+            <button
+              className={`locale-btn ${locale === 'en' ? 'active' : ''}`}
+              onClick={() => handleLocaleChange('en')}
+            >
+              🇬🇧 English
+            </button>
+          </li>
         </ul>
       </div>
     </nav>

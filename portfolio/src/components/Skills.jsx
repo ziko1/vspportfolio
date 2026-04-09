@@ -1,9 +1,12 @@
 import './Skills.css'
+import { useTranslation } from '../locales/translations'
 
-const Skills = () => {
+const Skills = ({ locale }) => {
+  const { t } = useTranslation(locale)
+  
   const skillCategories = [
     {
-      title: 'Frontend',
+      title: t('skills.frontend'),
       skills: [
         { name: 'React/Next.js', level: 95 },
         { name: 'TypeScript', level: 90 },
@@ -12,7 +15,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Backend',
+      title: t('skills.backend'),
       skills: [
         { name: 'Node.js', level: 90 },
         { name: 'Python', level: 85 },
@@ -21,7 +24,7 @@ const Skills = () => {
       ]
     },
     {
-      title: 'Tools & Others',
+      title: t('skills.tools'),
       skills: [
         { name: 'Git/GitHub', level: 93 },
         { name: 'Docker', level: 82 },
@@ -35,8 +38,8 @@ const Skills = () => {
     <section className="section skills" id="skills">
       <div className="container">
         <div className="section-header">
-          <h2>Навички</h2>
-          <p>Технології та інструменти, якими я володію</p>
+          <h2>{t('skills.title')}</h2>
+          <p>{t('skills.subtitle')}</p>
         </div>
 
         <div className="skills-container">
@@ -70,9 +73,9 @@ const Skills = () => {
 
         {/* Additional skills tags */}
         <div className="additional-skills">
-          <h4>Та багато іншого:</h4>
+          <h4>{t('skills.additional')}</h4>
           <div className="skills-tags">
-            {['GraphQL', 'REST API', 'Jest', 'CI/CD', 'Webpack', 'Vite', 'Linux', 'Agile', 'Scrum', 'OpenAI API', 'TensorFlow', 'Redis'].map((skill, index) => (
+            {t('skills.skills', []).map((skill, index) => (
               <span key={index} className="skill-tag">{skill}</span>
             ))}
           </div>

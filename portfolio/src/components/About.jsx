@@ -1,74 +1,67 @@
 import './About.css'
+import { useTranslation } from '../locales/translations'
 
-const About = () => {
+const About = ({ locale }) => {
+  const { t } = useTranslation(locale)
+  
   return (
     <section className="section about" id="about">
       <div className="container">
         <div className="section-header">
-          <h2>Про мене</h2>
-          <p>Дізнайтесь більше про мій досвід та підхід до розробки</p>
+          <h2>{t('about.title')}</h2>
+          <p>{t('about.subtitle')}</p>
         </div>
 
         <div className="about-content">
           <div className="about-text">
-            <h3>Привіт! Я Олександр 👋</h3>
-            <p>
-              Full-Stack розробник з понад 5 роками досвіду створення сучасних веб-додатків. 
-              Я захоплююсь перетворенням складних проблем на прості, елегантні рішення.
-            </p>
-            <p>
-              Мій шлях у розробці почався зі створення невеликих проектів, і з тих пір я працював 
-              над різними продуктами - від стартапів до корпоративних рішень. Я вірю в постійне 
-              навчання та слідкування за останніми тенденціями в технологіях.
-            </p>
-            <p>
-              Коли я не пишу код, ви можете знайти мене за вивченням нових технологій, участю 
-              в open-source проектах або менторством початківців у спільноті.
-            </p>
+            <h3>{t('about.greeting')}</h3>
+            <p>{t('about.description1')}</p>
+            <p>{t('about.description2')}</p>
+            <p>{t('about.description3')}</p>
 
             <div className="about-details">
               <div className="detail-item">
                 <span className="detail-icon">📍</span>
-                <span>Київ, Україна</span>
+                <span>{t('about.location')}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-icon">💼</span>
-                <span>Відкритий до фрілансу</span>
+                <span>{t('about.available')}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-icon">📧</span>
-                <span>alex@example.com</span>
+                <span>{t('about.email')}</span>
               </div>
             </div>
 
             <a href="#contact" className="btn btn-primary">
-              Зв'язатися зі мною
+              {t('about.contactButton')}
             </a>
           </div>
 
           <div className="about-cards">
             <div className="about-card glass">
               <div className="card-icon">🚀</div>
-              <h4>Швидкість</h4>
-              <p>Оптимізую продуктивність для найкращого користувацького досвіду</p>
+              <h4>{t('about.speed')}</h4>
+              <p>{t('about.speedDesc')}</p>
             </div>
 
             <div className="about-card glass">
               <div className="card-icon">🎯</div>
-              <h4>Якість</h4>
-              <p>Пишу чистий, підтримуваний код з дотриманням best practices</p>
+              <h4>{t('about.quality')}</h4>
+              <p>{t('about.qualityDesc')}</p>
             </div>
 
             <div className="about-card glass">
               <div className="card-icon">💡</div>
-              <h4>Інновації</h4>
-              <p>Використовую сучасні технології для створення унікальних рішень</p>
+              <h4>{t('about.innovation')}</h4>
+              <p>{t('about.innovationDesc')}</p>
             </div>
 
             <div className="about-card glass">
               <div className="card-icon">🤝</div>
-              <h4>Співпраця</h4>
-              <p>Ефективно працюю в команді та з клієнтами</p>
+              <h4>{t('about.collaboration')}</h4>
+              <p>{t('about.collaborationDesc')}</p>
             </div>
           </div>
         </div>

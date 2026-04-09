@@ -1,42 +1,45 @@
 import './Services.css'
+import { useTranslation } from '../locales/translations'
 
-const Services = () => {
+const Services = ({ locale }) => {
+  const { t } = useTranslation(locale)
+  
   const services = [
     {
       icon: '🌐',
-      title: 'Веб-розробка',
-      description: 'Створення сучасних, адаптивних веб-сайтів та додатків з використанням React, Vue та інших сучасних фреймворків.',
-      features: ['SPA додатки', 'Адаптивний дизайн', 'SEO оптимізація']
+      title: t('services.webDev.title'),
+      description: t('services.webDev.description'),
+      features: t('services.webDev.features')
     },
     {
       icon: '⚙️',
-      title: 'Backend розробка',
-      description: 'Розробка надійних серверних рішень, REST API та мікросервісів для масштабованих додатків.',
-      features: ['Node.js/Express', 'Python/Django', 'Бази даних']
+      title: t('services.backend.title'),
+      description: t('services.backend.description'),
+      features: t('services.backend.features')
     },
     {
       icon: '🤖',
-      title: 'AI Інтеграції',
-      description: 'Інтеграція штучного інтелекту та машинного навчання у ваші продукти для автоматизації та аналізу.',
-      features: ['ChatGPT API', 'ML моделі', 'Автоматизація']
+      title: t('services.ai.title'),
+      description: t('services.ai.description'),
+      features: t('services.ai.features')
     },
     {
       icon: '🎨',
-      title: 'UI/UX Дизайн',
-      description: 'Створення інтуїтивних інтерфейсів та користувацького досвіду, що конвертує відвідувачів у клієнтів.',
-      features: ['Figma', 'Прототипування', 'Дизайн-системи']
+      title: t('services.uiux.title'),
+      description: t('services.uiux.description'),
+      features: t('services.uiux.features')
     },
     {
       icon: '📱',
-      title: 'Мобільні додатки',
-      description: 'Розробка кросплатформних мобільних додатків за допомогою React Native та інших технологій.',
-      features: ['React Native', 'iOS & Android', 'PWA']
+      title: t('services.mobile.title'),
+      description: t('services.mobile.description'),
+      features: t('services.mobile.features')
     },
     {
       icon: '🚀',
-      title: 'Консультації',
-      description: 'Технічні консультації, код-ревю, допомога у виборі технологій та архітектурних рішень.',
-      features: ['Code Review', 'Архітектура', 'Менторство']
+      title: t('services.consulting.title'),
+      description: t('services.consulting.description'),
+      features: t('services.consulting.features')
     }
   ]
 
@@ -44,8 +47,8 @@ const Services = () => {
     <section className="section services" id="services">
       <div className="container">
         <div className="section-header">
-          <h2>Мої послуги</h2>
-          <p>Комплексні рішення для вашого бізнесу</p>
+          <h2>{t('services.title')}</h2>
+          <p>{t('services.subtitle')}</p>
         </div>
 
         <div className="services-grid">

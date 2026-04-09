@@ -1,6 +1,9 @@
 import './Hero.css'
+import { useTranslation } from '../locales/translations'
 
-const Hero = () => {
+const Hero = ({ locale }) => {
+  const { t } = useTranslation(locale)
+  
   const handleScrollToContact = (e) => {
     e.preventDefault()
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -11,20 +14,19 @@ const Hero = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-badge animate-fade-in-up">
-            <span>👋 Ласкаво просимо</span>
+            <span>{t('hero.welcome')}</span>
           </div>
           
           <h1 className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Олександр Коваленко
+            {t('hero.name')}
           </h1>
           
           <p className="hero-subtitle animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Full-Stack Розробник
+            {t('hero.title')}
           </p>
           
           <p className="hero-description animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Створюю сучасні, швидкі та масштабовані веб-додатки з використанням 
-            передових технологій. Спеціалізуюсь на React, Node.js, TypeScript та AI інтеграціях.
+            {t('hero.description')}
           </p>
           
           <div className="hero-buttons animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -32,7 +34,7 @@ const Hero = () => {
               <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
-              Зв'язатися зі мною
+              {t('hero.contactButton')}
             </button>
             
             <a href="#portfolio" className="btn btn-secondary" onClick={(e) => {
@@ -44,22 +46,22 @@ const Hero = () => {
                 <polyline points="2 17 12 22 22 17" />
                 <polyline points="2 12 12 17 22 12" />
               </svg>
-              Портфоліо
+              {t('hero.portfolioButton')}
             </a>
           </div>
           
           <div className="hero-stats animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             <div className="stat-item">
               <span className="stat-number">5+</span>
-              <span className="stat-label">Років досвіду</span>
+              <span className="stat-label">{t('hero.yearsExperience')}</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">50+</span>
-              <span className="stat-label">Проектів</span>
+              <span className="stat-label">{t('hero.projects')}</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">30+</span>
-              <span className="stat-label">Клієнтів</span>
+              <span className="stat-label">{t('hero.clients')}</span>
             </div>
           </div>
         </div>
@@ -83,15 +85,15 @@ const Hero = () => {
           {/* Decorative elements */}
           <div className="floating-card card-1 glass">
             <span>&lt;/&gt;</span>
-            <span>Code</span>
+            <span>{t('hero.code')}</span>
           </div>
           <div className="floating-card card-2 glass">
             <span>⚡</span>
-            <span>Fast</span>
+            <span>{t('hero.fast')}</span>
           </div>
           <div className="floating-card card-3 glass">
             <span>🎨</span>
-            <span>Design</span>
+            <span>{t('hero.design')}</span>
           </div>
         </div>
       </div>
