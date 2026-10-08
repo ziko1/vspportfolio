@@ -1,3 +1,7 @@
+> Build recovery (2026-10-08): use Node 22 (`nvm use`), `npm ci`, then `npm run build`. The Decap app/media packages are pinned to a compatible set. The legacy LMDB dependency fails on Node 24; this patch explicitly selects the tested Node 22 runtime. A maintained Gatsby/Decap upgrade remains a separate release gate. `npm test` remains the upstream unimplemented placeholder; the verified check is the production build.
+>
+> This repository still contains starter/demo content. CMS authentication, saves, forms, business identity/domain and browser acceptance are not certified by a successful build. See `COMPLETION_PLAN_UK.md`.
+
 # Gatsby + Decap CMS Starter
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)

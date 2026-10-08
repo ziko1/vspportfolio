@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-08",
+  "baseline_sha": "0b102651c68fd6fda064d30e032717cdcd74e9ce",
+  "build": "PASS",
+  "rendered_pages": 20,
+  "runtime": "Node 22",
+  "checks": [
+    "npm ci --ignore-scripts",
+    "npm rebuild sharp --foreground-scripts",
+    "Node 22: gatsby clean && gatsby build"
+  ],
+  "before": [
+    "npm ci failed ERESOLVE on floating Decap media dependencies",
+    "Node 24 build failed LMDB buffer bounds"
+  ],
+  "limitations": [
+    "Legacy framework/dependency modernization remains",
+    "No CMS provider/login/save, form delivery, browser/mobile or live deployment acceptance",
+    "npm test is an upstream unimplemented placeholder"
+  ],
+  "files_sha256": {
+    "package.json": "ca4128fe7e29d9d1610b6f531f3a476e0fd9151602eb0ac97298409fd49b946e",
+    "package-lock.json": "c86183a78a55d0203b5b3a43092c16f6d7c6036ed9389e572abfc585eaa3087a",
+    "netlify.toml": "10a6a0cf475b9b835ea7a0e0a65374b74219c342e34bb8ac89a3cfce0996e22e",
+    ".nvmrc": "f14b4987904bcb5814e4459a057ed4d20f58a633152288a761214dcd28780b56"
+  }
+}
