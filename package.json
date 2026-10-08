@@ -5,9 +5,9 @@
   "author": "Austin Green",
   "dependencies": {
     "bulma": "^0.9.0",
-    "decap-cms-app": "^3.0.12",
-    "decap-cms-media-library-cloudinary": "^3.0.1",
-    "decap-cms-media-library-uploadcare": "^3.0.0",
+    "decap-cms-app": "3.0.12",
+    "decap-cms-media-library-cloudinary": "3.0.1",
+    "decap-cms-media-library-uploadcare": "3.0.0",
     "gatsby": "^4.0.0",
     "gatsby-plugin-decap-cms": "^4.0.3",
     "gatsby-plugin-image": "^2.0.0",
@@ -49,6 +49,6 @@
     "prettier": "^2.0.5"
   },
   "engines": {
-    "node": ">= 14.15.0"
+    "node": ">=22 <23"
   }
 }
