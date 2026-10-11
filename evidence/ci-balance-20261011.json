@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "observedAtUtc": "2026-10-11T17:48:36.247Z",
+  "repository": "ziko1/vspportfolio",
+  "status": "BLOCKED",
+  "scope": "CI event routing, bounded jobs and dependency-download cache configuration",
+  "testedGitSha": "e1f57b681743128afadb48989185070d39adfe93",
+  "testedScope": "Source and GitHub workflow registration only; application tests at this SHA did not execute",
+  "baseGitSha": "3585a125248c9fc15ffa4edd944e1677656a7f64",
+  "baseBranch": "fix/reproducible-gatsby-build-20261008",
+  "branch": "ci/balance-github-codemagic-20261011",
+  "pullRequest": "https://github.com/ziko1/vspportfolio/pull/3",
+  "configuration": {
+    "status": "PASS",
+    "path": ".github/workflows/build.yml",
+    "blobSha": "e54be533f19398f19797795d623a966c6c86e1f9",
+    "readbackByteIdentical": true,
+    "validation": {
+      "parser": "PyYAML 6.0.3 BaseLoader",
+      "environment": "Python 3.12.14",
+      "checks": [
+        "YAML parsed with on as a string key",
+        "branch pushes match only main",
+        "existing tag pushes retained",
+        "pull_request has no base-branch or path exclusion",
+        "manual trigger configured",
+        "existing job actions and run commands preserved",
+        "contents: read retained",
+        "obsolete verification cancellation enabled",
+        "timeout bounded"
+      ],
+      "manualDispatchAvailability": "GitHub dispatch requires the workflow to exist on the default branch; not yet merged"
+    }
+  },
+  "sourcePreservation": {
+    "status": "PASS",
+    "compareUrl": "https://github.com/ziko1/vspportfolio/compare/3585a125248c9fc15ffa4edd944e1677656a7f64...e1f57b681743128afadb48989185070d39adfe93",
+    "changedPaths": [
+      ".github/workflows/build.yml"
+    ],
+    "applicationDependenciesAndTestSources": "UNCHANGED"
+  },
+  "githubExecution": {
+    "status": "BLOCKED_ENVIRONMENT",
+    "reason": "Provider account-level execution restriction; no runner allocated and no test step executed",
+    "runs": [
+      {
+        "id": 38160744859,
+        "url": "https://github.com/ziko1/vspportfolio/actions/runs/38160744859",
+        "name": "Production build",
+        "event": "pull_request",
+        "headSha": "e1f57b681743128afadb48989185070d39adfe93",
+        "status": "completed",
+        "conclusion": "failure",
+        "jobs": [
+          {
+            "id": 114532946256,
+            "name": "build",
+            "runnerId": 0,
+            "steps": [],
+            "status": "completed",
+            "conclusion": "failure"
+          }
+        ]
+      }
+    ]
+  },
+  "observedRouting": {
+    "pullRequestRuns": 1,
+    "branchPushRuns": 0,
+    "scope": "The recorded candidate creation and PR event only"
+  },
+  "historicalRuns": [
+    {
+      "id": 37841337392,
+      "url": "https://github.com/ziko1/vspportfolio/actions/runs/37841337392",
+      "headSha": "3585a125248c9fc15ffa4edd944e1677656a7f64",
+      "event": "push",
+      "scope": "Historical result for its own SHA only"
+    },
+    {
+      "id": 37841335824,
+      "url": "https://github.com/ziko1/vspportfolio/actions/runs/37841335824",
+      "headSha": "3585a125248c9fc15ffa4edd944e1677656a7f64",
+      "event": "pull_request",
+      "scope": "Historical result for its own SHA only"
+    }
+  ],
+  "codemagic": {
+    "configured": false,
+    "reason": "This public web/server project belongs on standard GitHub Linux runners; no native macOS requirement"
+  },
+  "productReadiness": "NOT_REASSESSED; existing completion-plan blockers remain",
+  "nextStep": "When hosted execution is restored, run the existing checks at the reviewed source before considering merge. No repeat was attempted against the known blocked provider."
+}
