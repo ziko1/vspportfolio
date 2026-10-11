@@ -7,3 +7,7 @@
 5. Форми, CMS provider/login, живий deployment і доступність потребують окремого приймання. Наявний npm test — upstream placeholder, а не успішний набір тестів.
 
 Статус: BUILD RECOVERED; продукт NOT READY. Evidence: evidence/verification.json.
+
+## CI balance — 2026-10-11
+
+Configuration source `e1f57b681743128afadb48989185070d39adfe93` у [PR #3](https://github.com/ziko1/vspportfolio/pull/3) зберігає наявний suite на GitHub Linux і усуває дубль feature-push/PR. Додано bounded job/cancellation/npm download cache. Source/configuration validation **PASS**; actual run 38160744859 **BLOCKED_ENVIRONMENT** до runner, tests/build **NOT_RUN**. Це не змінює product readiness вище. [CI інструкція](docs/CI_BALANCE_UK.md), [evidence](evidence/ci-balance-20261011.json), [пам'ять](PROJECT_MEMORY.md). Наступний крок — actual hosted verification після відновлення виконання, потім окреме рішення про merge.
