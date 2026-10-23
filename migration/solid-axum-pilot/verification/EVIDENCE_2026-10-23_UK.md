@@ -26,6 +26,16 @@
 - Звичайний `vitest run` шукав jsdom та не запускав тести: 0 tests / error. Після обмеження оточення до Node (`vitest run --environment node`) чотири контракти пройшли, виправлення збережено у package.json.
 - Перша збірка залишала `dist/` untracked у тимчасовій копії; додано вузький .gitignore, що не торкається оригінального Gatsby.
 
+
+## Rust backend — виконана ізольована перевірка
+
+- Код на момент Rust QA: `da8242e38799add6c8a354576bd6d097437e67d3`. Пізніший Cargo.lock-коміт лише додає lockfile для того самого коду.
+- Official rustup-init: SHA256 із `static.rust-lang.org` PASS; тимчасовий `RUSTUP_HOME` і `CARGO_HOME`; глобальний Rust не встановлювався.
+- Rust stable `rustc 1.99.1 (58cf8f9c3 2026-10-13)`, `cargo fmt --all -- --check`: exit 0.
+- `cargo generate-lockfile`: exit 0, Cargo.lock version 3 із 195 пакунками; файл додано до feature branch.
+- `cargo test --locked --quiet`: exit 0, 3/3 PASS (health200, readiness503 без БД, unknown404). Реальний PostgreSQL не підключено, інші сценарії UNKNOWN.
+- Перший Rust QA знайшов форматні відхилення; виправлено їх у Rust джерелах, підтверджено повторним запуском.
+
 ## Чесні статуси acceptance
 
 | ID | Що перевіряємо | Статус |
@@ -33,7 +43,7 @@
 | FE-01 | Чисте відтворюване встановлення залежностей | PASS, SHA de93d3 |
 | FE-02 | TypeScript і 4 API contract unit tests | PASS, SHA de93d3 |
 | FE-03 | Vite production build і manifest hashes | PASS, SHA de93d3 |
-| BE-01 | rustfmt/cargo check/cargo test | PENDING, окремий Rust test run |
+| BE-01 | rustfmt і cargo test --locked | PASS, 3/3 на коді da8242; окремий cargo check не запускався |
 | BE-02 | PostgreSQL ready 200 і timeout 503 на disposable DB | UNKNOWN |
 | UI-01 | Browser E2E, accessibility, screen readers, device/offline | UNKNOWN |
 | SEC-01 | threat model, rate limits, security audit, backend review | UNKNOWN |
