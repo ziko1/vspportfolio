@@ -7,8 +7,7 @@ use vspportfolio_solid_axum_pilot::{build_app, AppState};
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     tracing_subscriber::fmt()
         .with_env_filter(
-            EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| EnvFilter::new("info")),
+            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
         )
         .init();
 
@@ -38,4 +37,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
     Ok(())
 }
-
