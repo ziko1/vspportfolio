@@ -8,7 +8,7 @@ Frontend: SolidJS, TypeScript, Vite, Tailwind CSS v4. Read-only UI talks to loop
 
 ## Isolated local execution
 
-1. Ensure Rust stable 1.82+ and a recent Node.js are installed in an isolated development environment (not automatically on a production VPS).
+1. Ensure Rust stable 1.99+ and a recent Node.js are installed in an isolated development environment (not automatically on a production VPS).
 2. In frontend/: run npm ci, npm run check, npm test, npm run build, npm run dev. Requires Node.js 20+ (validated on 22.16.0).
 3. In backend/: run cargo fmt --all -- --check, cargo check --locked (after generating and reviewing Cargo.lock), cargo test; then cargo run. Backend listens on 127.0.0.1:9180 by default; the Vite dev proxy listens on 127.0.0.1:5178.
 4. DATABASE_URL is optional for health but REQUIRED for a 200 readiness response. Only use a dedicated least-privileged disposable PostgreSQL test database. No migration schema or customer DB is required for these probes.
