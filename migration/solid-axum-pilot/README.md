@@ -16,7 +16,7 @@ Frontend: SolidJS, TypeScript, Vite, Tailwind CSS v4. Read-only UI talks to loop
 
 ## Verification reality
 
-The code is a *proposed* pilot until Rust and Node dependencies are installed and tests executed on an exact commit, followed by independent code review. CI/build results alone are not live/device proof. A pinned frontend package-lock.json is committed; validate it with npm ci. A backend Cargo.lock is not yet generated; cargo tests/lockfile and independent review must pass before any integration/merge. Do NOT deploy, merge, use production DB, enable public forwarding, or modify the existing app without the separate gate. No automatic paid provider calls.
+The code is a *proposed* pilot until Rust and Node dependencies are installed and tests executed on an exact commit, followed by independent code review. CI/build results alone are not live/device proof. A pinned frontend package-lock.json is committed; validate it with npm ci. Pinned backend Cargo.lock is committed; Rust rustfmt and 3/3 route tests passed in a temporary verified Rust toolchain. Independent review, real PostgreSQL integration and Gatsby parity must still pass before integration/merge. Do NOT deploy, merge, use production DB, enable public forwarding, or modify the existing app without the separate gate. No automatic paid provider calls.
 
 ## Next functional migration
 
