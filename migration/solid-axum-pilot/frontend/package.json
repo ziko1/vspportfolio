@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "check": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --environment node",
     "build": "tsc --noEmit && vite build"
   },
   "dependencies": {
@@ -19,6 +19,8 @@
     "vite": "^6.0.0",
     "vite-plugin-solid": "^2.11.0",
     "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
-
