@@ -9,14 +9,14 @@ Frontend: SolidJS, TypeScript, Vite, Tailwind CSS v4. Read-only UI talks to loop
 ## Isolated local execution
 
 1. Ensure Rust stable 1.82+ and a recent Node.js are installed in an isolated development environment (not automatically on a production VPS).
-2. In frontend/: run npm install, npm run check, npm test, npm run build, npm run dev.
+2. In frontend/: run npm ci, npm run check, npm test, npm run build, npm run dev. Requires Node.js 20+ (validated on 22.16.0).
 3. In backend/: run cargo fmt --all -- --check, cargo check --locked (after generating and reviewing Cargo.lock), cargo test; then cargo run. Backend listens on 127.0.0.1:9180 by default; the Vite dev proxy listens on 127.0.0.1:5178.
 4. DATABASE_URL is optional for health but REQUIRED for a 200 readiness response. Only use a dedicated least-privileged disposable PostgreSQL test database. No migration schema or customer DB is required for these probes.
 5. Run manual browser QA on a real browser with 320 / 375 / 768 / 1280 viewport, keyboard navigation, dark contrast, network offline/timeout and screen reader; record browser and device metadata.
 
 ## Verification reality
 
-The code is a *proposed* pilot until Rust and Node dependencies are installed and tests executed on an exact commit, followed by independent code review. CI/build results alone are not live/device proof. There is no lockfile at this initial candidate stage; generate and commit reviewed lockfiles before any integration/merge. Do NOT deploy, merge, use production DB, enable public forwarding, or modify the existing app without the separate gate. No automatic paid provider calls.
+The code is a *proposed* pilot until Rust and Node dependencies are installed and tests executed on an exact commit, followed by independent code review. CI/build results alone are not live/device proof. A pinned frontend package-lock.json is committed; validate it with npm ci. A backend Cargo.lock is not yet generated; cargo tests/lockfile and independent review must pass before any integration/merge. Do NOT deploy, merge, use production DB, enable public forwarding, or modify the existing app without the separate gate. No automatic paid provider calls.
 
 ## Next functional migration
 
