@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-10-24T03:29:34.515902+00:00",
+  "host": "vsp",
+  "runtime_user": "sentinelx uid998",
+  "postgres_version": "16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)",
+  "installation": "download/extract only; no system installation, sudo, Docker, production DB or service change",
+  "temporary_root": "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1",
+  "binding": "127.0.0.1:50627",
+  "database": "pilot_test",
+  "role": "pilot_probe",
+  "role_privileges": {
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false,
+    "public_schema_create": false,
+    "default_transaction_read_only": true
+  },
+  "checks": [
+    {
+      "name": "select1",
+      "exit_code": 0,
+      "result": "1"
+    },
+    {
+      "name": "default_transaction_read_only",
+      "exit_code": 0,
+      "result": "on"
+    },
+    {
+      "name": "public_schema_create",
+      "exit_code": 0,
+      "result": "false"
+    },
+    {
+      "name": "write_denied",
+      "exit_code": 1,
+      "result": "cannot execute CREATE TABLE in a read-only transaction"
+    }
+  ],
+  "application_integration": "PASS",
+  "blocker": null,
+  "backend_candidate_sha256": "7d7f4fd8a55ddda4616a11e43a09765271b303915fbe2de0adf744804a970923",
+  "upload_history": {
+    "in_place": "Rejected not_in_place; no target write retried",
+    "default_staging": "Permitted official chunked upload; gzip and binary SHA256 verified",
+    "staging_path": "/var/lib/sentinelx/uploads/vspportfolio-api-20261024/pilot-api.gz"
+  },
+  "runtime_evidence": "postgres-integration.json",
+  "cleanup": {
+    "api_processes_stopped": true,
+    "postgres_stopped": true
+  }
+}

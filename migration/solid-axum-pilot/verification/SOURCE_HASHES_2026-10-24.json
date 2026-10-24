@@ -1,0 +1,26 @@
+{
+  "code_sha": "6e1743f9b2757a726f0247022392973f65936395",
+  "code_tree": "713c6c2444674e439a0889f08d1b0a007d4fe737",
+  "files": {
+    "migration/solid-axum-pilot/backend/.env.example": "a05e882467a8bb2819aab445149c3214efe30bfddd18d451e037011a60857469",
+    "migration/solid-axum-pilot/backend/.gitignore": "377d8586d8889e9918ecf007df05a565642529ea6a356e71989c22d1d57effd6",
+    "migration/solid-axum-pilot/backend/Cargo.lock": "a26d28faf159b614ab3ba30c45856bf90679191bbb8291ce892723efed627212",
+    "migration/solid-axum-pilot/backend/Cargo.toml": "9c9250fa8cc25a83f1fad7366e50f8e7212e0f76f8c410daf8c30fce8d15679b",
+    "migration/solid-axum-pilot/backend/src/config.rs": "5cedb634846a40371232f69c1a235aa07f5fd2f7f6fc9dde8875433c5d41be96",
+    "migration/solid-axum-pilot/backend/src/lib.rs": "4388f085a04c8c91e4cc0d130d9b22ea2e97108704d4829b7674d7784fc495aa",
+    "migration/solid-axum-pilot/backend/src/main.rs": "c74ed7aa667bba541f3ee42593ddac74fbbe173d11beaff31e65664c5975056c",
+    "migration/solid-axum-pilot/backend/tests/startup.rs": "73fd7465ccd5fdfa0d84ae1ce937a629f69fbfc01d397916926ef9be75af36cf",
+    "migration/solid-axum-pilot/frontend/.gitignore": "185cc30b3e3a9c9f2ae029e592cb9f0bd02e21c7c60d6a7e6b6b1f9a8b43c697",
+    "migration/solid-axum-pilot/frontend/index.html": "13a143cb8e773a48f0d88b9f3696b0189b59a1825f8849b9ee3a9dc2c495bc77",
+    "migration/solid-axum-pilot/frontend/package-lock.json": "c0afb9f53e94bb5d97bb12d85258f8f5b417c259c36bd8a4ae35278d3a2b1edd",
+    "migration/solid-axum-pilot/frontend/package.json": "c12fc7798a719456cf98f5ff6d439ce8f9523cb955558898e1ec455403107d1a",
+    "migration/solid-axum-pilot/frontend/src/App.tsx": "054553b939757dfd6ddcfa25c271762bafee51b4694b0c8399844348e242fd83",
+    "migration/solid-axum-pilot/frontend/src/api.test.ts": "f1f9d88c8e1efb30d3ef0dc2c526bd1ea1a1726937d60fcbb677efd587358647",
+    "migration/solid-axum-pilot/frontend/src/api.ts": "377d6afa2dfc1f7cab6b5352fc28e6936ae7fc3a8377ebcfdeb62b85ee0c30a1",
+    "migration/solid-axum-pilot/frontend/src/index.tsx": "b8663ef19d291b17fa680f46aa6ed2613b28af510bfdb0c39808bedc2ef8c48c",
+    "migration/solid-axum-pilot/frontend/src/styles.css": "9afe6947b6a061a04fbb3a13f1ed7b8448b0bec0c15126778d0761b8c13dca50",
+    "migration/solid-axum-pilot/frontend/tsconfig.json": "39841bb4213947b5ae89821fe4a4d8fd2dfdb54fb18f145c8a57c789927ae0d0",
+    "migration/solid-axum-pilot/frontend/vite.config.ts": "f8b2cd30154136f4134e83c666885bc8e86fe8269f17c2ab96941d99ce03bc95",
+    "migration/solid-axum-pilot/verification/browser-smoke.cjs": "0645f43fed38710530900017fdd01061eddecba999d6dd7f1a6780c1a9930446"
+  }
+}

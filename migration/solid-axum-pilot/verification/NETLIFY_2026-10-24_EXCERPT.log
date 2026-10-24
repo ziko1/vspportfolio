@@ -1,0 +1,32 @@
+# Selected actual visible UI log lines, re-read from DOM on 2026-10-24.
+# Source: https://app.netlify.com/projects/cozy-flan-14d1be/deploys/6adb97ea69752d910ac2bfe4
+# Deploy: 6adb97ea69752d910ac2bfe4; build: 6adb97ea69752d910ac2bfe2
+# Commit: 1b8cd0884796862c64163177a58981e51aa5449e
+# Original line numbers prefixed below. UI times: Europe/Berlin, 2026-10-23.
+# Sanitized selection: account IDs, unrelated environment variable names,
+# unrelated dependency warnings and traceback frames omitted. No secret values.
+L12 7:22:55 PM: mise ⇢ python@3.14.3  674ms · already installed
+L27 7:22:58 PM: Now using node v14.15.0 (npm v6.14.8)
+L30 7:22:58 PM: npm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@3. I'll try to do my best with it!
+L86 7:23:43 PM: > gatsby@4.25.9 postinstall /opt/build/repo/node_modules/gatsby
+L170 7:23:43 PM: npm WARN decap-cms-app@3.17.1 requires a peer of react@^19.1.0 but none is installed. You must install peer dependencies yourself.
+L249 7:23:46 PM: "gatsby" at version "4.25.9"
+L265 7:23:46 PM:   /opt/build/repo
+L268 7:23:46 PM:   /opt/build/repo/netlify.toml
+L271 7:23:46 PM:   deploy-preview
+L274 7:23:46 PM:    - @netlify/plugin-gatsby@3.8.4
+L280 7:23:53 PM:   Error while installing dependencies in /opt/build/repo/.netlify/plugins/
+L284 7:23:53 PM:   > sharp@0.32.6 install /opt/build/repo/.netlify/plugins/node_modules/sharp
+L287 7:23:53 PM:   sharp: Detected globally-installed libvips v8.15.1
+L288 7:23:53 PM:   sharp: Building from source via node-gyp
+L320 7:23:53 PM:       build_file_contents = open(build_file_path, 'rU').read()
+L322 7:23:53 PM:   ValueError: invalid mode: 'rU' while trying to load binding.gyp
+L331 7:23:53 PM:   gyp ERR! node -v v14.15.0
+L332 7:23:53 PM:   gyp ERR! node-gyp -v v5.1.0
+L334 7:23:53 PM:   npm WARN notsup Unsupported engine for @netlify/plugin-gatsby@3.8.4: wanted: {"node":">=14.17.0"} (current: {"node":"14.15.0","npm":"6.14.8"})
+L354 7:23:53 PM:   npm ERR! Failed at the sharp@0.32.6 install script.
+L359 7:23:53 PM:     command: npm run build
+L371 7:23:53 PM:     publish: /opt/build/repo/public
+L376 7:23:53 PM:       origin: ui
+L377 7:23:53 PM:       package: "@netlify/plugin-gatsby"
+L378 7:23:54 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
