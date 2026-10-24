@@ -11,6 +11,9 @@ export async function getProbe(
   path: ProbePath,
   transport: typeof fetch = fetch
 ): Promise<Probe> {
+  if (path !== "/api/migration/health" && path !== "/api/migration/ready") {
+    throw new Error("INVALID_PROBE_PATH");
+  }
   const response = await transport(path, {
     cache: "no-store",
     credentials: "omit",
@@ -28,21 +31,21 @@ export async function getProbe(
   }
 
   const record = payload as Record<string, unknown>;
-  if (typeof record.ok !== "boolean" || (response.status === 503 && record.ok)) {
-    throw new Error("INVALID_PROBE_RESPONSE");
-  }
-  if (record.service !== undefined && typeof record.service !== "string") {
-    throw new Error("INVALID_PROBE_RESPONSE");
-  }
-  if (record.database !== undefined &&
-      !["ready", "unavailable", "not_configured"].includes(String(record.database))) {
-    throw new Error("INVALID_PROBE_RESPONSE");
+  if (path === "/api/migration/health") {
+    if (response.status !== 200 || record.ok !== true ||
+        record.service !== "vspportfolio-solid-axum-pilot") {
+      throw new Error("INVALID_PROBE_RESPONSE");
+    }
+    return { ok: true, service: record.service };
   }
 
-  return {
-    ok: response.ok && record.ok,
-    ...(typeof record.service === "string" ? { service: record.service } : {}),
-    ...(record.database !== undefined ? { database: record.database as Probe["database"] } : {})
-  };
+  if (response.status === 200 && record.ok === true && record.database === "ready") {
+    return { ok: true, database: "ready" };
+  }
+  if (response.status === 503 && record.ok === false &&
+      (record.database === "unavailable" || record.database === "not_configured")) {
+    return { ok: false, database: record.database };
+  }
+  throw new Error("INVALID_PROBE_RESPONSE");
 }
 

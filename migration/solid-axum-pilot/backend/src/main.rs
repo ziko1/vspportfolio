@@ -1,7 +1,7 @@
 use sqlx::postgres::PgPoolOptions;
 use std::{env, net::SocketAddr, time::Duration};
-use tracing_subscriber::EnvFilter;
-use vspportfolio_solid_axum_pilot::{build_app, AppState};
+use tracing_subscriber::{filter::filter_fn, prelude::*, EnvFilter};
+use vspportfolio_solid_axum_pilot::{build_app, config::database_options, AppState};
 
 fn parse_pilot_bind(value: Option<String>) -> Result<SocketAddr, Box<dyn std::error::Error>> {
     let bind: SocketAddr = value
@@ -15,9 +15,13 @@ fn parse_pilot_bind(value: Option<String>) -> Result<SocketAddr, Box<dyn std::er
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    tracing_subscriber::fmt()
-        .with_env_filter(
-            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
+    tracing_subscriber::registry()
+        .with(EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")))
+        .with(
+            // Driver diagnostics can contain server-provided/private connection details.
+            // This filter remains effective even with RUST_LOG=sqlx::connection=trace.
+            tracing_subscriber::fmt::layer()
+                .with_filter(filter_fn(|metadata| !metadata.target().starts_with("sqlx"))),
         )
         .init();
 
@@ -28,10 +32,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 PgPoolOptions::new()
                     .max_connections(2)
                     .acquire_timeout(Duration::from_secs(2))
-                    .connect_lazy(&value)?,
+                    .connect_lazy_with(database_options(&value)?),
             )
         }
-        _ => None,
+        Ok(_) | Err(env::VarError::NotPresent) => None,
+        Err(env::VarError::NotUnicode(_)) => return Err("INVALID_DATABASE_URL".into()),
     };
 
     let bind = parse_pilot_bind(env::var("PILOT_BIND").ok())?;
@@ -52,7 +57,10 @@ mod tests {
 
     #[test]
     fn only_loopback_bind_is_accepted() {
-        assert_eq!(parse_pilot_bind(None).unwrap().to_string(), "127.0.0.1:9180");
+        assert_eq!(
+            parse_pilot_bind(None).unwrap().to_string(),
+            "127.0.0.1:9180"
+        );
         assert!(parse_pilot_bind(Some("127.0.0.1:9190".into())).is_ok());
         assert!(parse_pilot_bind(Some("[::1]:9190".into())).is_ok());
         assert!(parse_pilot_bind(Some("0.0.0.0:9190".into())).is_err());
