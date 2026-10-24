@@ -1,0 +1,86 @@
+{
+  "checked_at_utc": "2026-10-24T03:32:18.261183+00:00",
+  "host": "vsp",
+  "user": "sentinelx",
+  "postgres": "16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)",
+  "binary_sha256": "7d7f4fd8a55ddda4616a11e43a09765271b303915fbe2de0adf744804a970923",
+  "results": [
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"database\":\"ready\"}",
+      "duration_ms": 48.5,
+      "cache_control": "no-store",
+      "name": "postgres_ready"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"service\":\"vspportfolio-solid-axum-pilot\"}",
+      "duration_ms": 0.8,
+      "cache_control": "no-store",
+      "name": "health"
+    },
+    {
+      "status": 405,
+      "body": "",
+      "duration_ms": 1,
+      "cache_control": "no-store",
+      "name": "unsupported_method"
+    },
+    {
+      "status": 404,
+      "body": "",
+      "duration_ms": 0.6,
+      "cache_control": "no-store",
+      "name": "unknown_route"
+    },
+    {
+      "status": 503,
+      "body": "{\"ok\":false,\"database\":\"unavailable\"}",
+      "duration_ms": 53.4,
+      "cache_control": "no-store",
+      "name": "wrong_password"
+    },
+    {
+      "status": 503,
+      "body": "{\"ok\":false,\"database\":\"unavailable\"}",
+      "duration_ms": 2003,
+      "cache_control": "no-store",
+      "name": "postgres_down"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"service\":\"vspportfolio-solid-axum-pilot\"}",
+      "duration_ms": 0.7,
+      "cache_control": "no-store",
+      "name": "health_while_database_down"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"database\":\"ready\"}",
+      "duration_ms": 50.3,
+      "cache_control": "no-store",
+      "name": "postgres_recovery"
+    },
+    {
+      "status": 200,
+      "body": "{\"ok\":true,\"database\":\"ready\"}",
+      "duration_ms": 1.2,
+      "cache_control": "no-store",
+      "name": "trace_query_redaction"
+    },
+    {
+      "name": "logs_redacted",
+      "status": "PASS",
+      "checks": [
+        "query_marker_absent",
+        "database_password_absent"
+      ]
+    }
+  ],
+  "error": null,
+  "cleanup": {
+    "api_processes_stopped": true,
+    "postgres_stopped": true
+  },
+  "status": "PASS"
+}

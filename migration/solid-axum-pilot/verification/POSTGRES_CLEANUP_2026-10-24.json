@@ -1,0 +1,21 @@
+{
+  "removed": [
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/postgresql-16_16.15-0ubuntu0.24.04.1_amd64.deb",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/admin-password",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/root",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/data",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/state.json",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/postgres.log",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/libpq5_16.15-0ubuntu0.24.04.1_amd64.deb",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/bad-api.log",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/postgresql-client-16_16.15-0ubuntu0.24.04.1_amd64.deb",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/good-api.log",
+    "/var/lib/sentinelx/uploads/vspportfolio-api-20261024"
+  ],
+  "remaining": [
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/packages.json",
+    "/var/lib/sentinelx/uploads/vspportfolio-pg-20261024-Eb4Bw1/integration-evidence.json"
+  ],
+  "all_test_processes_previously_stopped": true,
+  "production_changed": false
+}

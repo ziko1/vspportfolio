@@ -1,0 +1,13 @@
+{
+  "browser": "134.0.6998.35",
+  "results": [
+    "actual Axum health 200 and no-database readiness 503 visible",
+    "320/375/768/1280px: no horizontal overflow",
+    "keyboard language toggle and document lang synchronized",
+    "API outage: unavailable UI remains usable, no uncaught resource exception",
+    "API restart and retry recover actual health",
+    "browser offline/online retry recovers",
+    "controlled transport delay: 2.5s browser timeout fails closed"
+  ],
+  "pageErrors": []
+}
